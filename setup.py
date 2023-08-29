@@ -1,7 +1,7 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(name='deephe3', 
-      package_dir={'': 'deephe3'}, 
+      packages=find_packages(), 
       install_requires=[
           'ase', 
           'pymatgen', 
