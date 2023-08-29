@@ -2,6 +2,7 @@ from setuptools import setup, find_packages
 
 setup(name='deephe3', 
       packages=find_packages(), 
+      package_data={'deephe3': ['process_data_tools/periodic_table.json']}, 
       install_requires=[
           'ase', 
           'pymatgen', 
