@@ -227,7 +227,7 @@ raw_data_dir
         data_list_mask = []
         for data in self:
             assert data.spinful == spinful
-            if data.Aij is not None:
+            if 'Aij' in data:
                 if not torch.all(data.Aij_mask):
                     raise NotImplementedError("Not yet have support for graph radius including Aij without calculation")
 
@@ -252,7 +252,7 @@ raw_data_dir
                                                       atom_num_orbital[condition_atomic_number_i] + block_slice[1]) # ds = down spin
                         condition_slice_j_ds = slice(atom_num_orbital[condition_atomic_number_j] + block_slice[2],
                                                      atom_num_orbital[condition_atomic_number_j] + block_slice[3])
-                    if data.Aij is not None:
+                    if 'Aij' in data:
                         out_slice = slice(out_slices[index_out], out_slices[index_out + 1])
                         condition_index = torch.where(
                             (atomic_number_edge_i == condition_atomic_number_i)
@@ -272,7 +272,7 @@ raw_data_dir
                             mask[condition_index[0], out_slice] += 1
             if del_Aij:
                 del data.Aij_mask
-            if data.Aij is not None:
+            if 'Aij' in data:
                 if convert_to_net:
                     label = construct_kernel.get_net_out(label)
                 data.label = label
