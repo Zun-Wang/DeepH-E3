@@ -13,7 +13,7 @@ setup(name='deephe3',
           'torch-sparse', 
           'torch-cluster', 
           'torch-spline-conv', 
-          'torch-geometric==2.3.0', 
+          'torch-geometric<=2.3.1', 
           'e3nn==0.4.4',  # to support mace
           'h5py', 
           'tensorboard', 
